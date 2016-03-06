@@ -1,0 +1,48 @@
+data =     (
+{
+"list_id" = "-101";
+name = "\U63a8\U8350";
+type = 1;
+"umeng_event" = recommend;
+url = "http://ic.snssdk.com/neihan/stream/mix/v1/?content_type=-101";
+},
+{
+"list_id" = "-104";
+name = "\U89c6\U9891";
+type = 1;
+"umeng_event" = video;
+url = "http://ic.snssdk.com/neihan/stream/mix/v1/?content_type=-104";
+},
+{
+"list_id" = "-103";
+name = "\U56fe\U7247";
+type = 1;
+"umeng_event" = pic;
+url = "http://ic.snssdk.com/neihan/stream/mix/v1/?content_type=-103";
+},
+{
+"list_id" = "-102";
+name = "\U6bb5\U5b50";
+type = 1;
+"umeng_event" = essay;
+url = "http://ic.snssdk.com/neihan/stream/mix/v1/?content_type=-102";
+},
+{
+"list_id" = "-20002";
+name = "\U7cbe\U534e";
+type = 4;
+"umeng_event" = essence;
+url = "http://i.snssdk.com/neihan/in_app/essence_list/";
+},
+{
+"list_id" = "-201";
+name = "\U540c\U57ce";
+type = 5;
+"umeng_event" = local;
+url = "http://ic.snssdk.com/neihan/stream/mix/v1/?content_type=-201";
+}
+);
+message = success;
+}
+
+
