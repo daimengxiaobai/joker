@@ -10,7 +10,7 @@
 		13B1065C6D04988D7BA0C2C1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F7975B71E250A196CE0037 /* libPods.a */; };
 		7A83D19A1C8ABC270061F296 /* PictureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A83D1981C8ABC270061F296 /* PictureTableViewCell.m */; };
 		7A83D19B1C8ABC270061F296 /* PictureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A83D1991C8ABC270061F296 /* PictureTableViewCell.xib */; };
-		7A99B8121C8BE0E7006EA6B0 /* PicCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A99B8111C8BE0E7006EA6B0 /* PicCommentModel.m */; };
+		7A8826C21C8D7383007264EC /* UIView+UIViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8826C11C8D7383007264EC /* UIView+UIViewExtension.m */; };
 		7A99B8141C8C162B006EA6B0 /* 1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A99B8131C8C162B006EA6B0 /* 1.plist */; };
 		7A9AD52D1C890DE500D37B83 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9AD52C1C890DE500D37B83 /* UIKit.framework */; };
 		7A9AD52F1C890E1900D37B83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9AD52E1C890E1900D37B83 /* Foundation.framework */; };
@@ -48,8 +48,8 @@
 		7A83D1971C8ABC270061F296 /* PictureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureTableViewCell.h; sourceTree = "<group>"; };
 		7A83D1981C8ABC270061F296 /* PictureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureTableViewCell.m; sourceTree = "<group>"; };
 		7A83D1991C8ABC270061F296 /* PictureTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureTableViewCell.xib; sourceTree = "<group>"; };
-		7A99B8101C8BE0E7006EA6B0 /* PicCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicCommentModel.h; sourceTree = "<group>"; };
-		7A99B8111C8BE0E7006EA6B0 /* PicCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicCommentModel.m; sourceTree = "<group>"; };
+		7A8826C01C8D7383007264EC /* UIView+UIViewExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIViewExtension.h"; sourceTree = "<group>"; };
+		7A8826C11C8D7383007264EC /* UIView+UIViewExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIViewExtension.m"; sourceTree = "<group>"; };
 		7A99B8131C8C162B006EA6B0 /* 1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 1.plist; sourceTree = "<group>"; };
 		7A9AD52C1C890DE500D37B83 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7A9AD52E1C890E1900D37B83 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -320,8 +320,6 @@
 				7A99B8131C8C162B006EA6B0 /* 1.plist */,
 				7AD24B1A1C8AF1D1008D7A4E /* PictureModel.h */,
 				7AD24B1B1C8AF1D1008D7A4E /* PictureModel.m */,
-				7A99B8101C8BE0E7006EA6B0 /* PicCommentModel.h */,
-				7A99B8111C8BE0E7006EA6B0 /* PicCommentModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -381,6 +379,8 @@
 				7A9AD5821C897A9F00D37B83 /* Header.h */,
 				7A9AD5361C891E2900D37B83 /* HWTools.h */,
 				7A9AD5371C891E2900D37B83 /* HWTools.m */,
+				7A8826C01C8D7383007264EC /* UIView+UIViewExtension.h */,
+				7A8826C11C8D7383007264EC /* UIView+UIViewExtension.m */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -545,8 +545,8 @@
 				7A9AD54F1C891EA700D37B83 /* VOSegmentedControl.m in Sources */,
 				7A9B75BA1C8838B20094E771 /* CheckViewController.m in Sources */,
 				7A9AD54D1C891EA700D37B83 /* VOIndicatorAnimation.m in Sources */,
-				7A99B8121C8BE0E7006EA6B0 /* PicCommentModel.m in Sources */,
 				7A9AD5381C891E2900D37B83 /* HWTools.m in Sources */,
+				7A8826C21C8D7383007264EC /* UIView+UIViewExtension.m in Sources */,
 				7A9B75B71C88386E0094E771 /* FirstViewController.m in Sources */,
 				7A9B758B1C87FE0F0094E771 /* main.m in Sources */,
 			);

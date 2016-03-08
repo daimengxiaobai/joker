@@ -12,7 +12,7 @@
 @property(nonatomic, retain) NSMutableArray *commontsArray;
  //group 的属性
     //category 分类（搞笑gif，搞笑囧图，来自世界的恶意等）
-
+@property (nonatomic, assign) NSInteger number;
 @property (nonatomic, copy) NSString *category_id;
 @property (nonatomic, copy) NSString *category_name;
 @property (nonatomic, copy) NSString *category_type;
@@ -20,7 +20,7 @@
 @property (nonatomic, copy) NSString *comment_count;     //评论数
 
 @property (nonatomic, copy) NSString *digg_count;        //点赞数
-
+@property (nonatomic, copy) NSString *bury_count;        //踩
 @property (nonatomic, copy) NSString *group_text;        //cell标题
 
 @property (nonatomic, copy) NSString *share_count;        //分享

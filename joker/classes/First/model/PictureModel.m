@@ -11,19 +11,33 @@
 @implementation PictureModel
 - (instancetype)initWithDictionary:(NSDictionary *)dict{
     self = [super init];
+    
     if (self) {
-        self.category_name = dict[@"category_name"];
-        self.comment_count = dict[@"comment_count"];
-        self.digg_count = dict[@"digg_count"];
-        self.group_text = dict[@"group_text"];
-        self.share_count = dict[@"share_count"];
-        self.repin_count = dict[@"repin_count"];
-        self.avatar_url = dict[@"user"][@"avatar_url"];
-        self.group_name = dict[@"user"][@"name"];
-        self.url = dict[@"middle_image"][@"url_list"][0][@"url"];
-        self.r_width = dict[@"middle_image"][@"r_width"];
-        self.r_height = dict[@"middle_image"][@"r_height"];
-        }
-    return self;
+        self.category_name = dict[@"group"][@"category_name"];
+        self.comment_count = dict[@"group"][@"comment_count"];
+        self.digg_count = dict[@"group"][@"digg_count"];
+        self.group_text = dict[@"group"][@"text"];
+        self.share_count = dict[@"group"][@"share_count"];
+        self.bury_count = dict[@"group"][@"bury_count"];
+        self.repin_count = dict[@"group"][@"repin_count"];
+        self.avatar_url = dict[@"group"][@"user"][@"avatar_url"];
+        self.group_name = dict[@"group"][@"user"][@"name"];
+        self.url = dict[@"group"][@"large_image"][@"url_list"][0][@"url"];
+        NSDictionary *dic =  dict[@"group"][@"large_image"][@"url_list"][0];
+        NSArray *array = [dic allKeys];
+        self.number = array.count;
+        self.r_width = dict[@"group"][@"large_image"][@"r_width"];
+        self.r_height = dict[@"group"][@"large_image"][@"r_height"];
+        self.category_id = dict[@"group"][@"category_id"];
+        self.commontsArray = dict[@"comments"];
+       
+    }
+           return self;
+}
+- (NSMutableArray *)commontsArray{
+    if (!_commontsArray) {
+        self.commontsArray = [NSMutableArray new];
+    }
+    return _commontsArray;
 }
 @end

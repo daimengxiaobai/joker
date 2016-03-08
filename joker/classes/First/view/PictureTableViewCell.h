@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "PictureModel.h"
-#import "PicCommentModel.h"
+
 
 @interface PictureTableViewCell : UITableViewCell
 @property(nonatomic, retain) PictureModel *pictureModel;
-@property(nonatomic, retain) PicCommentModel *picCommentModel1;
-@property(nonatomic, retain) PicCommentModel *picCommentModel2;
+@property(nonatomic, assign) CGFloat rowHight;
++ (CGFloat)getRowHeight:(PictureModel *)picture;
 @end

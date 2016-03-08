@@ -13,7 +13,7 @@
 #import "ProgressHUD.h"
 #import "PictureTableViewCell.h"
 #import "PictureModel.h"
-#import "PicCommentModel.h"
+
 
 @interface FirstViewController ()<UITableViewDataSource, UITableViewDelegate, PullingRefreshTableViewDelegate>
 {
@@ -42,22 +42,27 @@
     _pageCount = 1;
     [self.tableView registerNib:[UINib nibWithNibName:@"PictureTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
-    [self chooseRequest];
+//    [self.tableView launchRefreshing];
+   [self chooseRequest];
 }
 #pragma mark -----------------UITableViewDatasouce
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return self.pictureArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    PictureTableViewCell *pictureCell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    pictureCell.pictureModel = self.pictureArray[indexPath.row][1];
-    pictureCell.picCommentModel1 = self.pictureArray[indexPath.row][0] [0];
-    pictureCell.picCommentModel2 = self.pictureArray[indexPath.row][0][1];
+    PictureTableViewCell *pictureCell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    pictureCell.pictureModel = self.pictureArray[indexPath.row];
+
     return pictureCell;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+   
+   PictureModel *pictureModel = self.pictureArray[indexPath.row];
+     return [PictureTableViewCell getRowHeight:pictureModel];
 }
 #pragma mark -----------------PullingRefreshTableViewDelegate
 
@@ -151,33 +156,24 @@
         //XNLog(@"%@", responseObject);
         NSDictionary *dic = responseObject;
         NSArray *array = dic[@"data"][@"data"];
-        for (NSDictionary *dict in array) {
-        NSMutableArray *allArray = [NSMutableArray new];
-       NSDictionary *groupDic = dict[@"group"];
-      PictureModel *pictureModel = [[PictureModel alloc] initWithDictionary:groupDic];
-        NSArray *commentArray = dict[@"comments"];
-            if (commentArray.count > 0) {
-                 NSMutableArray *pingLunArray = [NSMutableArray new];
-                
-                for (NSDictionary *dicti in commentArray) {
-                    PicCommentModel *picCommentModel = [[PicCommentModel alloc] initWithDictionary:dicti];
-                   
-                    [pingLunArray addObject:picCommentModel];
-                      }
-                
-                [allArray addObject:pingLunArray];
-                [allArray addObject:pictureModel];
-            }else{
-            [allArray addObject:pictureModel];
+        if (self.refreshing) {
+            if (self.pictureArray.count > 0) {
+                [self.pictureArray removeAllObjects];
             }
-            [self.pictureArray addObject:allArray];
+        }
+
+        for (NSDictionary *dict in array) {
+            PictureModel *pictureModel = [[PictureModel alloc] initWithDictionary:dict];
+           
+            [self.pictureArray addObject:pictureModel];
        }
- 
+        XNLog(@"%lu", self.pictureArray.count);
         
-        //下边两句是把下拉刷新的头视图(下拉刷新)收起来
+       //下边两句是把下拉刷新的头视图(下拉刷新)收起来
         
         [self.tableView tableViewDidFinishedLoading];
         self.tableView.reachedTheEnd = NO;
+        [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [ProgressHUD show:[NSString stringWithFormat:@"%@", error]];
     }];
@@ -203,7 +199,7 @@
         self.tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 40 + 64, kScreenWidth, kScreenHeight - 144) pullingDelegate:self];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
-        self.tableView.rowHeight = 510;
+        
     }
     return _tableView;
 }
@@ -239,7 +235,7 @@
     return _videoArray;
 }
 - (NSMutableArray *)pictureArray{
-    if (!_pictureArray) {
+    if (_pictureArray == nil) {
         self.pictureArray = [NSMutableArray new];
     }
     return _pictureArray;
