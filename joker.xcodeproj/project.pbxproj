@@ -10,8 +10,8 @@
 		13B1065C6D04988D7BA0C2C1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F7975B71E250A196CE0037 /* libPods.a */; };
 		7A83D19A1C8ABC270061F296 /* PictureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A83D1981C8ABC270061F296 /* PictureTableViewCell.m */; };
 		7A83D19B1C8ABC270061F296 /* PictureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A83D1991C8ABC270061F296 /* PictureTableViewCell.xib */; };
+		7A85B8211C8FCF6B00F9ADD5 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A85B8201C8FCF6B00F9ADD5 /* DetailViewController.m */; };
 		7A8826C21C8D7383007264EC /* UIView+UIViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8826C11C8D7383007264EC /* UIView+UIViewExtension.m */; };
-		7A99B8141C8C162B006EA6B0 /* 1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A99B8131C8C162B006EA6B0 /* 1.plist */; };
 		7A9AD52D1C890DE500D37B83 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9AD52C1C890DE500D37B83 /* UIKit.framework */; };
 		7A9AD52F1C890E1900D37B83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9AD52E1C890E1900D37B83 /* Foundation.framework */; };
 		7A9AD5381C891E2900D37B83 /* HWTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9AD5371C891E2900D37B83 /* HWTools.m */; };
@@ -26,7 +26,6 @@
 		7A9AD5541C891EA700D37B83 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9AD54B1C891EA700D37B83 /* ProgressHUD.m */; };
 		7A9AD5841C89970B00D37B83 /* First.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9AD5831C89970B00D37B83 /* First.plist */; };
 		7A9AD5861C89B44900D37B83 /* picture.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9AD5851C89B44900D37B83 /* picture.plist */; };
-		7A9AD5881C89B9EF00D37B83 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9AD5871C89B9EF00D37B83 /* Property List.plist */; };
 		7A9B758B1C87FE0F0094E771 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B758A1C87FE0F0094E771 /* main.m */; };
 		7A9B758E1C87FE0F0094E771 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B758D1C87FE0F0094E771 /* AppDelegate.m */; };
 		7A9B75961C87FE0F0094E771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B75951C87FE0F0094E771 /* Assets.xcassets */; };
@@ -44,6 +43,13 @@
 		7A9B8A091C8E7B13009A983A /* LICENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B8A051C8E7B13009A983A /* LICENCE.txt */; };
 		7A9B8A0A1C8E7B13009A983A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B8A071C8E7B13009A983A /* Reachability.m */; };
 		7A9B8A0B1C8E7B13009A983A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B8A081C8E7B13009A983A /* README.md */; };
+		7AC117BB1C8FFB9100F5DF20 /* detail.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AC117BA1C8FFB9100F5DF20 /* detail.plist */; };
+		7AC117BD1C900C3300F5DF20 /* d1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AC117BC1C900C3300F5DF20 /* d1.plist */; };
+		7AC117C01C901A8300F5DF20 /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC117BF1C901A8300F5DF20 /* DetailModel.m */; };
+		7AC117C71C902D4900F5DF20 /* DetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC117C61C902D4900F5DF20 /* DetailHeaderView.xib */; };
+		7AC117CA1C902D7400F5DF20 /* DetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC117C91C902D7400F5DF20 /* DetailHeaderView.m */; };
+		7AC117D11C90506E00F5DF20 /* DetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC117CF1C90506E00F5DF20 /* DetailTableViewCell.m */; };
+		7AC117D21C90506E00F5DF20 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC117D01C90506E00F5DF20 /* DetailTableViewCell.xib */; };
 		7AD24B1C1C8AF1D1008D7A4E /* PictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD24B1B1C8AF1D1008D7A4E /* PictureModel.m */; };
 /* End PBXBuildFile section */
 
@@ -52,9 +58,10 @@
 		7A83D1971C8ABC270061F296 /* PictureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureTableViewCell.h; sourceTree = "<group>"; };
 		7A83D1981C8ABC270061F296 /* PictureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureTableViewCell.m; sourceTree = "<group>"; };
 		7A83D1991C8ABC270061F296 /* PictureTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureTableViewCell.xib; sourceTree = "<group>"; };
+		7A85B81F1C8FCF6B00F9ADD5 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		7A85B8201C8FCF6B00F9ADD5 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		7A8826C01C8D7383007264EC /* UIView+UIViewExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIViewExtension.h"; sourceTree = "<group>"; };
 		7A8826C11C8D7383007264EC /* UIView+UIViewExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIViewExtension.m"; sourceTree = "<group>"; };
-		7A99B8131C8C162B006EA6B0 /* 1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 1.plist; sourceTree = "<group>"; };
 		7A9AD52C1C890DE500D37B83 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7A9AD52E1C890E1900D37B83 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7A9AD5361C891E2900D37B83 /* HWTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTools.h; sourceTree = "<group>"; };
@@ -77,7 +84,6 @@
 		7A9AD5821C897A9F00D37B83 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		7A9AD5831C89970B00D37B83 /* First.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = First.plist; sourceTree = "<group>"; };
 		7A9AD5851C89B44900D37B83 /* picture.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = picture.plist; sourceTree = "<group>"; };
-		7A9AD5871C89B9EF00D37B83 /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		7A9B75861C87FE0F0094E771 /* joker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = joker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9B758A1C87FE0F0094E771 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7A9B758C1C87FE0F0094E771 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,6 +111,16 @@
 		7A9B8A061C8E7B13009A983A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		7A9B8A071C8E7B13009A983A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		7A9B8A081C8E7B13009A983A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7AC117BA1C8FFB9100F5DF20 /* detail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = detail.plist; sourceTree = "<group>"; };
+		7AC117BC1C900C3300F5DF20 /* d1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = d1.plist; sourceTree = "<group>"; };
+		7AC117BE1C901A8300F5DF20 /* DetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailModel.h; sourceTree = "<group>"; };
+		7AC117BF1C901A8300F5DF20 /* DetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailModel.m; sourceTree = "<group>"; };
+		7AC117C61C902D4900F5DF20 /* DetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailHeaderView.xib; sourceTree = "<group>"; };
+		7AC117C81C902D7400F5DF20 /* DetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailHeaderView.h; sourceTree = "<group>"; };
+		7AC117C91C902D7400F5DF20 /* DetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailHeaderView.m; sourceTree = "<group>"; };
+		7AC117CE1C90506E00F5DF20 /* DetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewCell.h; sourceTree = "<group>"; };
+		7AC117CF1C90506E00F5DF20 /* DetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewCell.m; sourceTree = "<group>"; };
+		7AC117D01C90506E00F5DF20 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		7AD24B1A1C8AF1D1008D7A4E /* PictureModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureModel.h; sourceTree = "<group>"; };
 		7AD24B1B1C8AF1D1008D7A4E /* PictureModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureModel.m; sourceTree = "<group>"; };
 		D22155C3EFF0B822D2D07FF1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -317,6 +333,8 @@
 			children = (
 				7A9B75B51C88386E0094E771 /* FirstViewController.h */,
 				7A9B75B61C88386E0094E771 /* FirstViewController.m */,
+				7A85B81F1C8FCF6B00F9ADD5 /* DetailViewController.h */,
+				7A85B8201C8FCF6B00F9ADD5 /* DetailViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -326,10 +344,12 @@
 			children = (
 				7A9AD5831C89970B00D37B83 /* First.plist */,
 				7A9AD5851C89B44900D37B83 /* picture.plist */,
-				7A9AD5871C89B9EF00D37B83 /* Property List.plist */,
-				7A99B8131C8C162B006EA6B0 /* 1.plist */,
+				7AC117BA1C8FFB9100F5DF20 /* detail.plist */,
+				7AC117BC1C900C3300F5DF20 /* d1.plist */,
 				7AD24B1A1C8AF1D1008D7A4E /* PictureModel.h */,
 				7AD24B1B1C8AF1D1008D7A4E /* PictureModel.m */,
+				7AC117BE1C901A8300F5DF20 /* DetailModel.h */,
+				7AC117BF1C901A8300F5DF20 /* DetailModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -341,6 +361,12 @@
 				7A83D1971C8ABC270061F296 /* PictureTableViewCell.h */,
 				7A83D1981C8ABC270061F296 /* PictureTableViewCell.m */,
 				7A83D1991C8ABC270061F296 /* PictureTableViewCell.xib */,
+				7AC117C81C902D7400F5DF20 /* DetailHeaderView.h */,
+				7AC117C91C902D7400F5DF20 /* DetailHeaderView.m */,
+				7AC117C61C902D4900F5DF20 /* DetailHeaderView.xib */,
+				7AC117CE1C90506E00F5DF20 /* DetailTableViewCell.h */,
+				7AC117CF1C90506E00F5DF20 /* DetailTableViewCell.m */,
+				7AC117D01C90506E00F5DF20 /* DetailTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -486,17 +512,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A9B8A091C8E7B13009A983A /* LICENCE.txt in Resources */,
-				7A99B8141C8C162B006EA6B0 /* 1.plist in Resources */,
 				7A83D19B1C8ABC270061F296 /* PictureTableViewCell.xib in Resources */,
 				7A9B75C21C8838F70094E771 /* Check.storyboard in Resources */,
+				7AC117BD1C900C3300F5DF20 /* d1.plist in Resources */,
+				7AC117D21C90506E00F5DF20 /* DetailTableViewCell.xib in Resources */,
 				7A9B75991C87FE0F0094E771 /* LaunchScreen.storyboard in Resources */,
 				7A9AD5861C89B44900D37B83 /* picture.plist in Resources */,
+				7AC117BB1C8FFB9100F5DF20 /* detail.plist in Resources */,
 				7A9B75961C87FE0F0094E771 /* Assets.xcassets in Resources */,
 				7A9AD5501C891EA700D37B83 /* blueArrow.png in Resources */,
 				7A9B75B41C8837FC0094E771 /* First.storyboard in Resources */,
-				7A9AD5881C89B9EF00D37B83 /* Property List.plist in Resources */,
 				7A9AD5841C89970B00D37B83 /* First.plist in Resources */,
 				7A9B75C41C8839190094E771 /* Discover.storyboard in Resources */,
+				7AC117C71C902D4900F5DF20 /* DetailHeaderView.xib in Resources */,
 				7A9AD5511C891EA700D37B83 /* blueArrowDown.png in Resources */,
 				7A9AD5531C891EA700D37B83 /* ProgressHUD.bundle in Resources */,
 				7A9B75C61C8839270094E771 /* Message.storyboard in Resources */,
@@ -559,6 +587,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A9AD54E1C891EA700D37B83 /* VOSegment.m in Sources */,
+				7AC117D11C90506E00F5DF20 /* DetailTableViewCell.m in Sources */,
 				7AD24B1C1C8AF1D1008D7A4E /* PictureModel.m in Sources */,
 				7A9AD5541C891EA700D37B83 /* ProgressHUD.m in Sources */,
 				7A9AD5521C891EA700D37B83 /* PullingRefreshTableView.m in Sources */,
@@ -569,11 +598,14 @@
 				7A9B75BD1C8838CC0094E771 /* DiscoverViewController.m in Sources */,
 				7A9B758E1C87FE0F0094E771 /* AppDelegate.m in Sources */,
 				7A9AD54F1C891EA700D37B83 /* VOSegmentedControl.m in Sources */,
+				7AC117C01C901A8300F5DF20 /* DetailModel.m in Sources */,
 				7A9B75BA1C8838B20094E771 /* CheckViewController.m in Sources */,
 				7A9AD54D1C891EA700D37B83 /* VOIndicatorAnimation.m in Sources */,
 				7A9B8A0B1C8E7B13009A983A /* README.md in Sources */,
 				7A9AD5381C891E2900D37B83 /* HWTools.m in Sources */,
+				7A85B8211C8FCF6B00F9ADD5 /* DetailViewController.m in Sources */,
 				7A8826C21C8D7383007264EC /* UIView+UIViewExtension.m in Sources */,
+				7AC117CA1C902D7400F5DF20 /* DetailHeaderView.m in Sources */,
 				7A9B75B71C88386E0094E771 /* FirstViewController.m in Sources */,
 				7A9B8A0A1C8E7B13009A983A /* Reachability.m in Sources */,
 				7A9B758B1C87FE0F0094E771 /* main.m in Sources */,

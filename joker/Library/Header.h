@@ -33,5 +33,9 @@ typedef NS_ENUM(NSInteger ,ClassfyType){
 //同城接口
 #define kSameCity @"http://ic.snssdk.com/neihan/stream/mix/v1/?content_type=-201"
 
+//  发现 @"http://lf.snssdk.com/2/essay/discovery/v3/?iid=3773916990&device_id=11828359714&ac=wifi&channel=tengxun&aid=7&app_name=joke_essay&version_code=500&version_name=5.0.0&device_platform=android&ssmix=a&device_type=HONOR+H30-L01M&os_api=19&os_version=4.4.2&uuid=865666020837771&openudid=aac18c62be745c13&manifest_version_code=500"
+//   是个应用 @"http://lf.snssdk.com/service/3/app_components/?screen_type=android_hdpi&iid=3773916990&device_id=11828359714&ac=wifi&channel=tengxun&aid=7&app_name=joke_essay&version_code=500&version_name=5.0.0&device_platform=android&ssmix=a&device_type=HONOR+H30-L01M&os_api=19&os_version=4.4.2&uuid=865666020837771&openudid=aac18c62be745c13&manifest_version_code=500"
+//评论接口
+#define kcomment @"http://isub.snssdk.com/neihan/comments/?group_id=%@&item_id=%@&count=20&offset=0&iid=3773916990&device_id=11828359714&ac=wifi&channel=tengxun&aid=7&app_name=joke_essay&version_code=500&version_name=5.0.0&device_platform=android&ssmix=a&device_type=HONOR+H30-L01M&os_api=19&os_version=4.4.2&uuid=865666020837771&openudid=aac18c62be745c13&manifest_version_code=500"
 
 #endif /* Header_h */

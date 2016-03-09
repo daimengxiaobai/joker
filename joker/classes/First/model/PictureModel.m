@@ -7,12 +7,14 @@
 //
 
 #import "PictureModel.h"
-//initWithDictionary:groupDic with:dicti with:commentConut
+
 @implementation PictureModel
 - (instancetype)initWithDictionary:(NSDictionary *)dict{
     self = [super init];
     
     if (self) {
+        self.group_id = dict[@"group"][@"group_id"];
+        self.category_id = dict[@"group"][@"category_id"];
         self.category_name = dict[@"group"][@"category_name"];
         self.comment_count = dict[@"group"][@"comment_count"];
         self.digg_count = dict[@"group"][@"digg_count"];
@@ -28,7 +30,6 @@
         self.number = array.count;
         self.r_width = dict[@"group"][@"large_image"][@"r_width"];
         self.r_height = dict[@"group"][@"large_image"][@"r_height"];
-        self.category_id = dict[@"group"][@"category_id"];
         self.commontsArray = [NSMutableArray new];
         self.commontsArray = dict[@"comments"];
        

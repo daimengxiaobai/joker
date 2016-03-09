@@ -13,6 +13,7 @@
 #import "ProgressHUD.h"
 #import "PictureTableViewCell.h"
 #import "PictureModel.h"
+#import "DetailViewController.h"
 
 
 @interface FirstViewController ()<UITableViewDataSource, UITableViewDelegate, PullingRefreshTableViewDelegate>
@@ -42,7 +43,7 @@
     _pageCount = 1;
     [self.tableView registerNib:[UINib nibWithNibName:@"PictureTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
-//    [self.tableView launchRefreshing];
+
    [self chooseRequest];
 }
 #pragma mark -----------------UITableViewDatasouce
@@ -56,9 +57,11 @@
 
     return pictureCell;
 }
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DetailViewController *detailVC = [[DetailViewController alloc] init];
+    detailVC.picModel = self.pictureArray[indexPath.row];
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
    
    PictureModel *pictureModel = self.pictureArray[indexPath.row];
@@ -167,7 +170,7 @@
            
             [self.pictureArray addObject:pictureModel];
        }
-        XNLog(@"%lu", self.pictureArray.count);
+        
         
        //下边两句是把下拉刷新的头视图(下拉刷新)收起来
         
@@ -189,7 +192,7 @@
     
 }
 //刷新完成时间
-- (NSDate *)pullingTableViewLoadingFinishedDate{
+- (NSDate *)pullingTableViewRefreshingFinishedDate{
     return [HWTools getSystemNowDate];
 }
 

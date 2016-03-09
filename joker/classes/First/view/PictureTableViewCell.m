@@ -55,6 +55,7 @@
 
 - (void)setPictureModel:(PictureModel *)pictureModel{
     [self.comment_count setTitle:[NSString stringWithFormat:@"%@",pictureModel.comment_count] forState:UIControlStateNormal];
+    
     [self.category_name setTitle:[NSString stringWithFormat:@"%@",pictureModel.category_name] forState:UIControlStateNormal];
     [self.digg_count setTitle:[NSString stringWithFormat:@"%@",pictureModel.digg_count] forState:UIControlStateNormal];
     [self.bury_count setTitle:[NSString stringWithFormat:@"%@",pictureModel.bury_count] forState:UIControlStateNormal];
@@ -67,13 +68,19 @@
      [爆笑GIF 10]  [脑残对话 15][奇葩新闻 77][奇葩卖家的二三事 81][搞笑囧图 2][][][][]
     [来自世界的恶意 80]
      */
+
+
     
     NSInteger count ;
     count = pictureModel.commontsArray.count;
     
     CGFloat a ,b, c;
     
-    a = [[self class] getGroupTextHeight:pictureModel.group_text];
+    if ([pictureModel.group_text isKindOfClass:[NSNull class]]) {
+        a = 0;
+    }else{
+        a = [[self class] getGroupTextHeight:pictureModel.group_text];
+    }
     CGRect frame = self.group_text.frame;
     frame.size.height = a;
     self.group_text.frame = frame;
@@ -93,7 +100,11 @@
         self.view2.hidden = YES;
          self.view.frame = CGRectMake(10, self.picView.bottom + 15, 375, 30);
     }else if (count == 1){
-         b = [[self class] CommentText1:pictureModel.commontsArray[0][@"text"]];
+        if ([pictureModel.commontsArray[0][@"text"] isKindOfClass:[NSNull class]]) {
+            b = 0;
+        }else{
+            b = [[self class] CommentText1:pictureModel.commontsArray[0][@"text"]];
+        }
         NSDictionary *dic1 = pictureModel.commontsArray[0];
         self.view2.hidden = YES;
         self.view1.hidden = NO;
@@ -111,8 +122,16 @@
     }else if (count == 2){
         self.view1.hidden = NO;
         self.view2.hidden = NO;
-        b = [[self class] CommentText1:pictureModel.commontsArray[0][@"text"]];
-        c = [[self class] CommentText2:pictureModel.commontsArray[1][@"text"]];
+        if ([pictureModel.commontsArray[0][@"text"] isKindOfClass:[NSNull class]]) {
+            b = 0;
+        }else{
+            b = [[self class] CommentText1:pictureModel.commontsArray[0][@"text"]];
+        }
+        if ([pictureModel.commontsArray[1][@"text"] isKindOfClass:[NSNull class]]) {
+            c = 0;
+        }else{
+            c = [[self class] CommentText2:pictureModel.commontsArray[1][@"text"]];
+        }
         
         self.view1.frame = CGRectMake(10, self.picView.bottom, 357, b + 50);
         self.view2.frame = CGRectMake(10, self.picView.bottom + b + 50, 357, c + 50);
@@ -173,20 +192,43 @@
         picViewHight = [pictureModel.r_height floatValue] / 2;
     }
     if (i == 0) {
-        
+        if ([pictureModel.group_text isKindOfClass:[NSNull class]]) {
+            a = 0;
+        }else{
         a = [self getGroupTextHeight:pictureModel.group_text];
+        }
         return 150 + 15 + a + picViewHight;
        
     }else if (i == 1){
-        
-    a = [self getGroupTextHeight:pictureModel.group_text];
-    b = [self CommentText1:pictureModel.commontsArray[0][@"text"]];
+        if ([pictureModel.group_text isKindOfClass:[NSNull class]]) {
+            a = 0;
+        }else{
+            a = [self getGroupTextHeight:pictureModel.group_text];
+        }
+        if ([pictureModel.commontsArray[0][@"text"] isKindOfClass:[NSNull class]]) {
+            b = 0;
+        }else{
+           b = [self CommentText1:pictureModel.commontsArray[0][@"text"]];
+        }
+    
       
     return  150 + 15 + a + 50 + b + picViewHight;
     }else{
-        a = [self getGroupTextHeight:pictureModel.group_text];
-        b = [self CommentText1:pictureModel.commontsArray[0][@"text"]];
-        c = [self CommentText2:pictureModel.commontsArray[1][@"text"]];
+        if ([pictureModel.group_text isKindOfClass:[NSNull class]]) {
+            a = 0;
+        }else{
+            a = [self getGroupTextHeight:pictureModel.group_text];
+        }
+        if ([pictureModel.commontsArray[0][@"text"] isKindOfClass:[NSNull class]]) {
+            b = 0;
+        }else{
+            b = [self CommentText1:pictureModel.commontsArray[0][@"text"]];
+        }
+        if ([pictureModel.commontsArray[1][@"text"] isKindOfClass:[NSNull class]]) {
+           c = 0;
+        }else{
+           c = [self CommentText2:pictureModel.commontsArray[1][@"text"]];
+        }
         return 150 + 15 + a + 50 + b + 50 + c + picViewHight;
        
     }

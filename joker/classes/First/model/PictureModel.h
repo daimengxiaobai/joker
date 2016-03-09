@@ -16,6 +16,7 @@
 @property (nonatomic, copy) NSString *category_id;
 @property (nonatomic, copy) NSString *category_name;
 @property (nonatomic, copy) NSString *category_type;
+@property (nonatomic, copy) NSString *group_id;
 
 @property (nonatomic, copy) NSString *comment_count;     //评论数
 
