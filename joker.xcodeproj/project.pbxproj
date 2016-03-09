@@ -40,6 +40,10 @@
 		7A9B75C41C8839190094E771 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B75C31C8839190094E771 /* Discover.storyboard */; };
 		7A9B75C61C8839270094E771 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B75C51C8839270094E771 /* Message.storyboard */; };
 		7A9B75F61C887C0B0094E771 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9B75F41C887BB30094E771 /* SystemConfiguration.framework */; };
+		7A9B8A031C8E790C009A983A /* ZMYNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B8A021C8E790C009A983A /* ZMYNetManager.m */; };
+		7A9B8A091C8E7B13009A983A /* LICENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B8A051C8E7B13009A983A /* LICENCE.txt */; };
+		7A9B8A0A1C8E7B13009A983A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B8A071C8E7B13009A983A /* Reachability.m */; };
+		7A9B8A0B1C8E7B13009A983A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B8A081C8E7B13009A983A /* README.md */; };
 		7AD24B1C1C8AF1D1008D7A4E /* PictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD24B1B1C8AF1D1008D7A4E /* PictureModel.m */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +99,12 @@
 		7A9B75C51C8839270094E771 /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Message.storyboard; path = ../../First/view/Message.storyboard; sourceTree = "<group>"; };
 		7A9B75F21C8874850094E771 /* joker.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = joker.pch; sourceTree = "<group>"; };
 		7A9B75F41C887BB30094E771 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7A9B8A011C8E790C009A983A /* ZMYNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMYNetManager.h; sourceTree = "<group>"; };
+		7A9B8A021C8E790C009A983A /* ZMYNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMYNetManager.m; sourceTree = "<group>"; };
+		7A9B8A051C8E7B13009A983A /* LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.txt; sourceTree = "<group>"; };
+		7A9B8A061C8E7B13009A983A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		7A9B8A071C8E7B13009A983A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		7A9B8A081C8E7B13009A983A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7AD24B1A1C8AF1D1008D7A4E /* PictureModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureModel.h; sourceTree = "<group>"; };
 		7AD24B1B1C8AF1D1008D7A4E /* PictureModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureModel.m; sourceTree = "<group>"; };
 		D22155C3EFF0B822D2D07FF1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -372,6 +382,7 @@
 		7A9B75B11C8802610094E771 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7A9B8A041C8E7B13009A983A /* Reachability */,
 				7A9AD5391C891EA700D37B83 /* VOSegmentedControl */,
 				7A9AD5421C891EA700D37B83 /* PullingRefreshTableView */,
 				7A9AD5481C891EA700D37B83 /* ProgressHUD */,
@@ -381,6 +392,8 @@
 				7A9AD5371C891E2900D37B83 /* HWTools.m */,
 				7A8826C01C8D7383007264EC /* UIView+UIViewExtension.h */,
 				7A8826C11C8D7383007264EC /* UIView+UIViewExtension.m */,
+				7A9B8A011C8E790C009A983A /* ZMYNetManager.h */,
+				7A9B8A021C8E790C009A983A /* ZMYNetManager.m */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -390,6 +403,17 @@
 			children = (
 			);
 			path = Rescouse;
+			sourceTree = "<group>";
+		};
+		7A9B8A041C8E7B13009A983A /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				7A9B8A051C8E7B13009A983A /* LICENCE.txt */,
+				7A9B8A061C8E7B13009A983A /* Reachability.h */,
+				7A9B8A071C8E7B13009A983A /* Reachability.m */,
+				7A9B8A081C8E7B13009A983A /* README.md */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		CFF3105342BBBB21742A3CF7 /* Pods */ = {
@@ -461,6 +485,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A9B8A091C8E7B13009A983A /* LICENCE.txt in Resources */,
 				7A99B8141C8C162B006EA6B0 /* 1.plist in Resources */,
 				7A83D19B1C8ABC270061F296 /* PictureTableViewCell.xib in Resources */,
 				7A9B75C21C8838F70094E771 /* Check.storyboard in Resources */,
@@ -538,6 +563,7 @@
 				7A9AD5541C891EA700D37B83 /* ProgressHUD.m in Sources */,
 				7A9AD5521C891EA700D37B83 /* PullingRefreshTableView.m in Sources */,
 				7A9AD54C1C891EA700D37B83 /* VOContentLayer.m in Sources */,
+				7A9B8A031C8E790C009A983A /* ZMYNetManager.m in Sources */,
 				7A83D19A1C8ABC270061F296 /* PictureTableViewCell.m in Sources */,
 				7A9B75C01C8838DE0094E771 /* MessageViewController.m in Sources */,
 				7A9B75BD1C8838CC0094E771 /* DiscoverViewController.m in Sources */,
@@ -545,9 +571,11 @@
 				7A9AD54F1C891EA700D37B83 /* VOSegmentedControl.m in Sources */,
 				7A9B75BA1C8838B20094E771 /* CheckViewController.m in Sources */,
 				7A9AD54D1C891EA700D37B83 /* VOIndicatorAnimation.m in Sources */,
+				7A9B8A0B1C8E7B13009A983A /* README.md in Sources */,
 				7A9AD5381C891E2900D37B83 /* HWTools.m in Sources */,
 				7A8826C21C8D7383007264EC /* UIView+UIViewExtension.m in Sources */,
 				7A9B75B71C88386E0094E771 /* FirstViewController.m in Sources */,
+				7A9B8A0A1C8E7B13009A983A /* Reachability.m in Sources */,
 				7A9B758B1C87FE0F0094E771 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

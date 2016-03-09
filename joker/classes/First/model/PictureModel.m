@@ -29,15 +29,10 @@
         self.r_width = dict[@"group"][@"large_image"][@"r_width"];
         self.r_height = dict[@"group"][@"large_image"][@"r_height"];
         self.category_id = dict[@"group"][@"category_id"];
+        self.commontsArray = [NSMutableArray new];
         self.commontsArray = dict[@"comments"];
        
     }
            return self;
-}
-- (NSMutableArray *)commontsArray{
-    if (!_commontsArray) {
-        self.commontsArray = [NSMutableArray new];
-    }
-    return _commontsArray;
 }
 @end

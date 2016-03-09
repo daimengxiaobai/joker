@@ -13,6 +13,7 @@
 
 
 ////group 的属性
+@property (weak, nonatomic) NSString *category_id;
 @property (weak, nonatomic) IBOutlet UIButton *category_name;
 @property (weak, nonatomic) IBOutlet UIButton *comment_count;
 
@@ -35,6 +36,7 @@
 @property (weak, nonatomic) IBOutlet UIView *view1;
 @property (weak, nonatomic) IBOutlet UIImageView *comment_avatar_url;
 @property (weak, nonatomic) IBOutlet UILabel *comment_user_name;
+
 @property (weak, nonatomic) IBOutlet UILabel *comment_text;
 @property (weak, nonatomic) IBOutlet UIButton *comment_digg_count;
 
@@ -56,8 +58,7 @@
     [self.category_name setTitle:[NSString stringWithFormat:@"%@",pictureModel.category_name] forState:UIControlStateNormal];
     [self.digg_count setTitle:[NSString stringWithFormat:@"%@",pictureModel.digg_count] forState:UIControlStateNormal];
     [self.bury_count setTitle:[NSString stringWithFormat:@"%@",pictureModel.bury_count] forState:UIControlStateNormal];
-    self.group_text.text = pictureModel.group_text;
-    self.group_text.numberOfLines = 0;
+    
         [self.share_count setTitle:[NSString stringWithFormat:@"%@",pictureModel.share_count] forState:UIControlStateNormal];
     [self.avatar_url sd_setImageWithURL:[NSURL URLWithString:pictureModel.avatar_url]];
     self.group_name.text = pictureModel.group_name;
@@ -66,73 +67,129 @@
      [爆笑GIF 10]  [脑残对话 15][奇葩新闻 77][奇葩卖家的二三事 81][搞笑囧图 2][][][][]
     [来自世界的恶意 80]
      */
-//    self.largeView = [[UIImageView alloc] init];
-//    self.smileView = [[UIImageView alloc] init];
-//    self.mainView.frame = CGRectMake(15, 116, [pictureModel.r_width floatValue] / 2 + 20, [pictureModel.r_height floatValue] / 2);
-//    self.largeView.frame = CGRectMake(0, 0, [pictureModel.r_width floatValue] / 2 + 20, [pictureModel.r_height floatValue] / 2);
-//    
-//    [self.largeView sd_setImageWithURL:[NSURL URLWithString:pictureModel.url]];
-//    
-//    [self.mainView addSubview:self.largeView];
-    self.picView.frame = CGRectMake(15, 116, [pictureModel.r_width floatValue] / 2 + 20, [pictureModel.r_height floatValue] / 2);
-    [self.picView sd_setImageWithURL:[NSURL URLWithString:pictureModel.url]];
-    self.picView.backgroundColor = [UIColor magentaColor];
-    self.view1.frame = CGRectMake(10, self.picView.bottom, 357, 80);
-    self.view2.frame = CGRectMake(10, self.picView.bottom + 80, 357, 80);
-    self.view.frame = CGRectMake(10, self.picView.bottom + 160, 375, 30);
-/*
-    if (pictureModel.number == 1) {
-    self.mainView.frame = CGRectMake(15, 116, [pictureModel.r_width floatValue] / 2 + 20, [pictureModel.r_height floatValue] / 2);
-    self.largeView.frame = CGRectMake(0, 0, [pictureModel.r_width floatValue] / 2 + 20, [pictureModel.r_height floatValue] / 2);
     
-    [self.largeView sd_setImageWithURL:[NSURL URLWithString:pictureModel.url]];
-    
-    [self.mainView addSubview:self.largeView];
-    }else{
-        for (int i = 0; i < pictureModel.number; i++) {
-            int j = i % 3;
-            int k = i / 3;
-            self.smileView.frame = CGRectMake(kScreenWidth / 3 * j, kScreenWidth / 3 * k, kScreenWidth / 3 - 3, kScreenWidth / 3 - 3 );
-           [self.smileView sd_setImageWithURL:[NSURL URLWithString:pictureModel.url]];
-            [self.mainView addSubview:self.smileView];
-        }
-
-    }
-*/
     NSInteger count ;
     count = pictureModel.commontsArray.count;
+    
+    CGFloat a ,b, c;
+    
+    a = [[self class] getGroupTextHeight:pictureModel.group_text];
+    CGRect frame = self.group_text.frame;
+    frame.size.height = a;
+    self.group_text.frame = frame;
+    self.group_text.text = pictureModel.group_text;
+    self.group_text.numberOfLines = 0;
+    self.category_id = pictureModel.category_id;
+    if ([pictureModel.category_id integerValue] == 10) {
+        self.picView.frame = CGRectMake(10, 86 + a, 357, 200);
+    }else{
+    self.picView.frame = CGRectMake(15, 86 + a, [pictureModel.r_width floatValue] / 2 + 20, [pictureModel.r_height floatValue] / 2);
+    }
+    [self.picView sd_setImageWithURL:[NSURL URLWithString:pictureModel.url]];
+
+   
     if (count == 0) {
         self.view1.hidden = YES;
         self.view2.hidden = YES;
+         self.view.frame = CGRectMake(10, self.picView.bottom + 15, 375, 30);
     }else if (count == 1){
+         b = [[self class] CommentText1:pictureModel.commontsArray[0][@"text"]];
+        NSDictionary *dic1 = pictureModel.commontsArray[0];
         self.view2.hidden = YES;
         self.view1.hidden = NO;
-        self.comment_user_name = pictureModel.commontsArray[0][@"user_name"];
-        [self.comment_avatar_url sd_setImageWithURL:[NSURL URLWithString:pictureModel.commontsArray[0][@"avatar_url"]]];
-        [self.comment_digg_count setTitle:[NSString stringWithFormat:@"%@",pictureModel.commontsArray[0][@"digg_count"]] forState:UIControlStateNormal];
-        self.comment_text.text = pictureModel.commontsArray[0][@"text"];
+        self.view1.frame = CGRectMake(10, self.picView.bottom, 357, b + 50);
+        self.view.frame = CGRectMake(10, self.picView.bottom + b + 50 + 15, 375, 30);
+        self.comment_user_name.text = dic1[@"user_name"];
+        [self.comment_avatar_url sd_setImageWithURL:[NSURL URLWithString:dic1[@"avatar_url"]]];
+        [self.comment_digg_count setTitle:[NSString stringWithFormat:@"%@",dic1[@"digg_count"]] forState:UIControlStateNormal];
+        CGRect frame1 = self.comment_text.frame;
+        frame1.size.height = b;
+        self.comment_text.frame = frame1;
+        self.comment_text.text = dic1[@"text"];
         self.comment_text.numberOfLines = 0;
         
     }else if (count == 2){
         self.view1.hidden = NO;
         self.view2.hidden = NO;
+        b = [[self class] CommentText1:pictureModel.commontsArray[0][@"text"]];
+        c = [[self class] CommentText2:pictureModel.commontsArray[1][@"text"]];
+        
+        self.view1.frame = CGRectMake(10, self.picView.bottom, 357, b + 50);
+        self.view2.frame = CGRectMake(10, self.picView.bottom + b + 50, 357, c + 50);
+        self.view.frame = CGRectMake(10, self.picView.bottom + b + 50 + c + 50 + 15, 375, 30);
+        
+        NSDictionary *dic1 = pictureModel.commontsArray[0];
+        NSDictionary *dic2  = pictureModel.commontsArray[1];
         //view1
-        self.comment_user_name.text = pictureModel.commontsArray[0][@"user_name"];
-        [self.comment_avatar_url sd_setImageWithURL:[NSURL URLWithString:pictureModel.commontsArray[0][@"avatar_url"]]];
-        [self.comment_digg_count setTitle:[NSString stringWithFormat:@"%@",pictureModel.commontsArray[0][@"digg_count"]] forState:UIControlStateNormal];
-        self.comment_text.text = pictureModel.commontsArray[0][@"text"];
+        self.comment_user_name.text = dic1[@"user_name"];
+        [self.comment_avatar_url sd_setImageWithURL:[NSURL URLWithString:dic1[@"avatar_url"]]];
+        [self.comment_digg_count setTitle:[NSString stringWithFormat:@"%@",dic1[@"digg_count"]] forState:UIControlStateNormal];
+        CGRect frame1 = self.comment_text.frame;
+        frame1.size.height = b;
+        self.comment_text.frame = frame1;
+        self.comment_text.text = dic1[@"text"];
         self.comment_text.numberOfLines = 0;
         
         //view2
-        self.comment_user_name2.text = pictureModel.commontsArray[1][@"user_name"];
-        [self.comment_avatar_url2 sd_setImageWithURL:[NSURL URLWithString:pictureModel.commontsArray[1][@"avatar_url"]]];
-        [self.comment_digg_count2 setTitle:[NSString stringWithFormat:@"%@",pictureModel.commontsArray[1][@"digg_count"]] forState:UIControlStateNormal];
-        self.comment_text2.text = pictureModel.commontsArray[1][@"text"];
+        self.comment_user_name2.text = dic2[@"user_name"];
+        [self.comment_avatar_url2 sd_setImageWithURL:[NSURL URLWithString:dic2[@"avatar_url"]]];
+        [self.comment_digg_count2 setTitle:[NSString stringWithFormat:@"%@",dic2[@"digg_count"]] forState:UIControlStateNormal];
+        CGRect frame2 = self.comment_text2.frame;
+        frame2.size.height = c;
+        self.comment_text2.frame = frame2;
+        self.comment_text2.text = dic2[@"text"];
         self.comment_text2.numberOfLines = 0;
     }
 }
-+ (CGFloat)getRowHeight:(PictureModel *)picture{
-    return  340 + [picture.r_height floatValue] / 2;
++ (CGFloat)getGroupTextHeight:(NSString *)groupText{
+    CGRect groupTextRect = [groupText boundingRectWithSize:CGSizeMake(357, 200) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0f]} context:nil];
+    CGFloat a = groupTextRect.size.height;
+    return a;
+}
++ (CGFloat)CommentText1:(NSString *)commentText1{
+    CGRect TextRect = [commentText1 boundingRectWithSize:CGSizeMake(357, 200) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0f]} context:nil];
+    CGFloat b = TextRect.size.height;
+    return b;
+    
+}
++ (CGFloat)CommentText2:(NSString *)commentText2{
+    CGRect TextRect = [commentText2 boundingRectWithSize:CGSizeMake(357, 200) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0f]} context:nil];
+    CGFloat c = TextRect.size.height;
+    return c;
+    
+}
+
++ (CGFloat)getRowHeight:(PictureModel *)pictureModel{
+    
+
+    CGFloat a , b, c;
+   
+    NSInteger i = pictureModel.commontsArray.count;
+    CGFloat picViewHight ;
+   
+    if ([pictureModel.category_id integerValue] == 10) {
+        picViewHight = 200;
+    }else{
+        picViewHight = [pictureModel.r_height floatValue] / 2;
+    }
+    if (i == 0) {
+        
+        a = [self getGroupTextHeight:pictureModel.group_text];
+        return 150 + 15 + a + picViewHight;
+       
+    }else if (i == 1){
+        
+    a = [self getGroupTextHeight:pictureModel.group_text];
+    b = [self CommentText1:pictureModel.commontsArray[0][@"text"]];
+      
+    return  150 + 15 + a + 50 + b + picViewHight;
+    }else{
+        a = [self getGroupTextHeight:pictureModel.group_text];
+        b = [self CommentText1:pictureModel.commontsArray[0][@"text"]];
+        c = [self CommentText2:pictureModel.commontsArray[1][@"text"]];
+        return 150 + 15 + a + 50 + b + 50 + c + picViewHight;
+       
+    }
 }
 - (void)awakeFromNib {
     // Initialization code
@@ -143,5 +200,4 @@
 
     // Configure the view for the selected state
 }
-
 @end
