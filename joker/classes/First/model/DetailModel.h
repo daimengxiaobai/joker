@@ -12,7 +12,7 @@
 
 @property (nonatomic, copy) NSString *avatar_url;
 @property (nonatomic, copy) NSString *create_time;
-@property (nonatomic, copy) NSString *digg_count;
+@property (nonatomic, copy) NSNumber *digg_count;
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) NSString *user_name;
 

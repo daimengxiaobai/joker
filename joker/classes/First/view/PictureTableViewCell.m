@@ -52,7 +52,11 @@
 
 @implementation PictureTableViewCell
 
-
+- (void)clickButton:(UIButton *)btn{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(getButonTag:)]) {
+        [self.delegate getButonTag:btn.tag];
+    }
+}
 - (void)setPictureModel:(PictureModel *)pictureModel{
     [self.comment_count setTitle:[NSString stringWithFormat:@"%@",pictureModel.comment_count] forState:UIControlStateNormal];
     
@@ -60,7 +64,10 @@
     [self.digg_count setTitle:[NSString stringWithFormat:@"%@",pictureModel.digg_count] forState:UIControlStateNormal];
     [self.bury_count setTitle:[NSString stringWithFormat:@"%@",pictureModel.bury_count] forState:UIControlStateNormal];
     
-        [self.share_count setTitle:[NSString stringWithFormat:@"%@",pictureModel.share_count] forState:UIControlStateNormal];
+    [self.share_count setTitle:[NSString stringWithFormat:@"%@",pictureModel.share_count] forState:UIControlStateNormal];
+    self.share_count.tag = 1;
+    [self.share_count addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.avatar_url sd_setImageWithURL:[NSURL URLWithString:pictureModel.avatar_url]];
     self.group_name.text = pictureModel.group_name;
    // NSInteger categoryId = [pictureModel.category_id integerValue];

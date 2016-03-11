@@ -14,9 +14,10 @@
 #import "PictureTableViewCell.h"
 #import "PictureModel.h"
 #import "DetailViewController.h"
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
 
-
-@interface FirstViewController ()<UITableViewDataSource, UITableViewDelegate, PullingRefreshTableViewDelegate>
+@interface FirstViewController ()<UITableViewDataSource, UITableViewDelegate, PullingRefreshTableViewDelegate, getButtonTag>
 {
     NSInteger _index;
     NSInteger _pageCount;
@@ -53,9 +54,56 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PictureTableViewCell *pictureCell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    pictureCell.delegate = self;
     pictureCell.pictureModel = self.pictureArray[indexPath.row];
 
     return pictureCell;
+}
+
+//代理方法
+- (void)getButonTag:(NSInteger)tag{
+    if (tag == 1) {
+        NSArray* imageArray = @[[UIImage imageNamed:@"28-star"]];
+       // （注意：图片必须要在Xcode左边目录里面，名称必须要传正确，如果要分享网络图片，可以这样传iamge参数 images:@[@"http://mob.com/Assets/images/logo.png?v=20150320"]）
+        if (imageArray) {
+            
+            NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+            [shareParams SSDKSetupShareParamsByText:@"分享内容" images:imageArray url:[NSURL URLWithString:@"http://mob.com"] title:@"分享标题" type:SSDKContentTypeAuto];
+            
+            //2、分享（可以弹出我们的分享菜单和编辑界面）
+            [ShareSDK showShareActionSheet:nil //要显示菜单的视图, iPad版中此参数作为弹出菜单的参照视图，只有传这个才可以弹出我们的分享菜单，可以传分享的按钮对象或者自己创建小的view 对象，iPhone可以传nil不会影响
+                                     items:nil
+                               shareParams:shareParams
+                       onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                           
+                           switch (state) {
+                               case SSDKResponseStateSuccess:
+                               {
+                                   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                                       message:nil
+                                                                                      delegate:nil
+                                                                             cancelButtonTitle:@"确定"
+                                                                             otherButtonTitles:nil];
+                                   [alertView show];
+                                   break;
+                               }
+                               case SSDKResponseStateFail:
+                               {
+                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                                   message:[NSString stringWithFormat:@"%@",error]
+                                                                                  delegate:nil
+                                                                         cancelButtonTitle:@"OK"
+                                                                         otherButtonTitles:nil, nil];
+                                   [alert show];
+                                   break;
+                               }
+                               default:
+                                   break;
+                           }}];
+
+        }}
+        
+    
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailViewController *detailVC = [[DetailViewController alloc] init];
@@ -149,6 +197,14 @@
     XNLog(@"2");
 }
 - (void)requestPicture3{
+    if (![ZMYNetManager shareZMYNetManager].isZMYNetWorkRunning) {
+        //提示框
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"网络提示" message:@"网络不可用" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:action];
+        [self.navigationController presentViewController:alert animated:YES completion:nil];
+        return;
+    }
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     

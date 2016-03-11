@@ -27,7 +27,8 @@
     self.userName.text = picModel.group_name;
     self.groupText.text = picModel.group_text;
     self.category_id = picModel.category_id;
-    self.largeImage.frame = CGRectMake(10, 116, 357, 300);
+    
+    self.largeImage.frame = CGRectMake(9, 139 , [picModel.r_width floatValue] / 2 + 20, [picModel.r_height floatValue] / 2);
     [self.largeImage sd_setImageWithURL:[NSURL URLWithString:picModel.url]];
 }
 
