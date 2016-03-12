@@ -11,12 +11,14 @@
 #import <ShareSDKConnector/ShareSDKConnector.h>
 //qq和qq空间
 #import <TencentOpenAPI/TencentOAuth.h>
+
 #import <TencentOpenAPI/QQApiInterface.h>
 //微信
 #import <WXApi.h>
 //新浪微博
 #import <WeiboSDK.h>
 
+#import <BmobSDK/Bmob.h>
 @interface AppDelegate ()
 
 @end
@@ -26,7 +28,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //bmob
+     [Bmob registerWithAppKey:@"d1399be6ba1403fd5ff25b266c685c5d"];
     
+    
+    
+    //shareSDK
     [ShareSDK registerApp:@"iosv1101"
      
           activePlatforms:@[

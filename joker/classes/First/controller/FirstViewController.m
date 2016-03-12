@@ -16,6 +16,8 @@
 #import "DetailViewController.h"
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKUI/ShareSDK+SSUI.h>
+#import "RegisterViewController.h"
+#import "LoginViewController.h"
 
 @interface FirstViewController ()<UITableViewDataSource, UITableViewDelegate, PullingRefreshTableViewDelegate, getButtonTag>
 {
@@ -31,6 +33,7 @@
 @property(nonatomic, retain)NSMutableArray *jokeArray;
 @property(nonatomic, retain)NSMutableArray *bestArray;
 @property(nonatomic, retain)NSMutableArray *sameCityArray;
+@property(nonatomic, retain) UIButton *leftBtn;
 @end
 
 @implementation FirstViewController
@@ -39,6 +42,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tabBarController.tabBar.hidden = NO;
+    self.leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.leftBtn.frame = CGRectMake(0, 0, 60, 44);
+//    [self.leftBtn setImage:[UIImage imageNamed:@"btn_chengshi"] forState:UIControlStateNormal];
+    [self.leftBtn setTitle:@"未登录" forState:UIControlStateNormal];
+//    //调整button图片位置
+//    self.leftBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 40, 0, 0);
+//    //调整button标题所在位置，距离btn顶部，左边，下边，右边的距离
+//    self.leftBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -40, 0, 0);
+    [self.leftBtn addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithCustomView:self.leftBtn];
+    self.leftBtn.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem = leftBarBtn;
+    
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.segmentControl];
     _pageCount = 1;
@@ -79,22 +95,20 @@
                            switch (state) {
                                case SSDKResponseStateSuccess:
                                {
-                                   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
-                                                                                       message:nil
-                                                                                      delegate:nil
-                                                                             cancelButtonTitle:@"确定"
-                                                                             otherButtonTitles:nil];
-                                   [alertView show];
+                                   UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"分享成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                                   UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+                                   [alert addAction:action];
+                                   [self.navigationController presentViewController:alert animated:YES completion:nil];
+                                   
                                    break;
                                }
                                case SSDKResponseStateFail:
                                {
-                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
-                                                                                   message:[NSString stringWithFormat:@"%@",error]
-                                                                                  delegate:nil
-                                                                         cancelButtonTitle:@"OK"
-                                                                         otherButtonTitles:nil, nil];
-                                   [alert show];
+                                   UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"分享失败" message:[NSString stringWithFormat:@"%@",error] preferredStyle:UIAlertControllerStyleAlert];
+                                   UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+                                   [alert addAction:action];
+                                   [self.navigationController presentViewController:alert animated:YES completion:nil];
+                                  
                                    break;
                                }
                                default:
@@ -143,6 +157,15 @@
     [self chooseRequest];
    
     
+}
+- (void)loginAction:(UIButton *)btn{
+    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"First" bundle:nil];
+    
+    LoginViewController *loginVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"LoginVC"];
+    [self.navigationController pushViewController:loginVC animated:YES];
+}
+- (void)registerAction:(UIButton *)btn{
+
 }
 - (void)chooseRequest{
     switch (_index) {
