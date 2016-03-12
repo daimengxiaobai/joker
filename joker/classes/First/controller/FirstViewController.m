@@ -19,7 +19,7 @@
 #import "RegisterViewController.h"
 #import "LoginViewController.h"
 
-@interface FirstViewController ()<UITableViewDataSource, UITableViewDelegate, PullingRefreshTableViewDelegate, getButtonTag>
+@interface FirstViewController ()<UITableViewDataSource, UITableViewDelegate, PullingRefreshTableViewDelegate, getButtonTag, getUserName>
 {
     NSInteger _index;
     NSInteger _pageCount;
@@ -46,6 +46,7 @@
     self.leftBtn.frame = CGRectMake(0, 0, 60, 44);
 //    [self.leftBtn setImage:[UIImage imageNamed:@"btn_chengshi"] forState:UIControlStateNormal];
     [self.leftBtn setTitle:@"未登录" forState:UIControlStateNormal];
+    [self.leftBtn setTitleColor:[UIColor yellowColor] forState:UIControlStateNormal];
 //    //调整button图片位置
 //    self.leftBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 40, 0, 0);
 //    //调整button标题所在位置，距离btn顶部，左边，下边，右边的距离
@@ -162,7 +163,11 @@
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"First" bundle:nil];
     
     LoginViewController *loginVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"LoginVC"];
+    loginVC.delegate = self;
     [self.navigationController pushViewController:loginVC animated:YES];
+}
+- (void)getUserName:(NSString *)name{
+    [self.leftBtn setTitle:name forState:UIControlStateNormal];
 }
 - (void)registerAction:(UIButton *)btn{
 

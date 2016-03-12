@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+@protocol getUserName <NSObject>
 
+- (void)getUserName:(NSString *)name;
+
+@end
+
+@interface LoginViewController : UIViewController
+@property(nonatomic, assign) id<getUserName>delegate;
 @end

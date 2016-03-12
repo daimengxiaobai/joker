@@ -33,41 +33,53 @@
                         <viewControllerLayoutGuide type="top" id="GVE-wT-jdb"/>
                         <viewControllerLayoutGuide type="bottom" id="YK1-Co-OMD"/>
                     </layoutGuides>
-                    <view key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="LpV-Nu-Huj">
+                    <view key="view" contentMode="scaleToFill" id="LpV-Nu-Huj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="账号/用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IuA-4E-I3K">
-                                <rect key="frame" x="20" y="114" width="340" height="40"/>
+                                <rect key="frame" x="15" y="98" width="340" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5N-IP-ki0">
-                                <rect key="frame" x="62" y="326" width="250" height="39"/>
-                                <color key="backgroundColor" red="0.32694239790000001" green="0.92581434730000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="登陆"/>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3RV-gY-LcW">
-                                <rect key="frame" x="20" y="202" width="340" height="40"/>
+                                <rect key="frame" x="15" y="207" width="340" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tf-Nv-Faw">
+                                <rect key="frame" x="60" y="309" width="250" height="38"/>
+                                <color key="backgroundColor" red="0.32694239790000001" green="0.92581434730000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="登陆">
+                                    <color key="titleColor" red="0.94117647059999998" green="0.94117647059999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5N-IP-ki0">
+                                <rect key="frame" x="60" y="382" width="250" height="39"/>
+                                <color key="backgroundColor" red="0.32694239790000001" green="0.92581434730000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="注册"/>
+                                <state key="highlighted" title="注册">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.95655776515151514" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="登陆" id="xeX-nf-bcz"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="GoButton" destination="v5N-IP-ki0" id="S4n-aI-Tlw"/>
-                        <outlet property="MiMa" destination="3RV-gY-LcW" id="oOG-eC-cgq"/>
-                        <outlet property="ZhangHao" destination="IuA-4E-I3K" id="dKY-iZ-J3B"/>
+                        <outlet property="MiMa" destination="3RV-gY-LcW" id="iZ0-j5-AgC"/>
+                        <outlet property="ZhangHao" destination="IuA-4E-I3K" id="MVc-Xd-zZT"/>
+                        <outlet property="goLogin" destination="3Tf-Nv-Faw" id="9er-qO-ArG"/>
+                        <outlet property="goRegister" destination="v5N-IP-ki0" id="1uf-sM-VKo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="haa-7L-RcM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2921.5" y="464.5"/>
+            <point key="canvasLocation" x="2913.5" y="464.5"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="MZR-ym-UbJ">
@@ -93,12 +105,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入六位以上密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DAL-6h-dPy">
-                                <rect key="frame" x="37" y="226" width="300" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lC-Xh-oyQ">
                                 <rect key="frame" x="37" y="404" width="300" height="35"/>
                                 <color key="backgroundColor" red="0.32694239790000001" green="0.92581434730000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -108,12 +114,25 @@
                                 <rect key="frame" x="37" y="308" width="300" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入六位以上密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DAL-6h-dPy">
+                                <rect key="frame" x="37" y="226" width="300" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.95655776520000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="MiMa" destination="DAL-6h-dPy" id="LXk-69-ZeF"/>
+                        <outlet property="ZhangHao" destination="Tum-zv-yeQ" id="Seh-FP-MqW"/>
+                        <outlet property="affirmMiMa" destination="xnp-CZ-pn6" id="780-AE-Cze"/>
+                        <outlet property="name" destination="YIs-ql-nfo" id="WS1-2X-zMo"/>
+                        <outlet property="registerButton" destination="8lC-Xh-oyQ" id="vI9-9m-ZsL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a5L-cu-Baa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
